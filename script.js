@@ -23,13 +23,6 @@ function getHumanChoice() {
 
 // This function will determine a victor by assessing the inputs from player and computer and increment score accordingly. 
 function playRound(humanChoice, computerChoice) {
-
-}
-
-const humanChoice = getHumanChoice();
-const computerChoice = getComputerChoice();
-
-playRound(humanChoice, computerChoice);
 // Objective is to write an if statement for three situations: ones where player wins, ones where player ties, ones where player loses
     if (
         humanChoice === "SCISSORS", computerChoice === "PAPER" ||
@@ -53,10 +46,15 @@ playRound(humanChoice, computerChoice);
         ) {
             ++computerScore;
             return `You lose this round! ${computerChoice} beats ${humanChoice}`;
-            
-    } else {
-            return `Try typing the right string next time. You broke it.`
-    }
 
+    } else {
+            return `Try typing the right string next time. You broke it.`;
+    }
+}
+
+const humanChoice = getHumanChoice();
+const computerChoice = getComputerChoice();
+
+playRound(humanChoice, computerChoice);
 // This function will call a play round function 5 times, evaluating incremented score upon conclusion and declaring a winner.
 
