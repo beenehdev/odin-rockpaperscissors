@@ -1,6 +1,10 @@
 let humanScore = 0;
 let computerScore = 0;
 
+const humanChoice = getHumanChoice();
+const computerChoice = getComputerChoice();
+
+
 // Gets choice of rock, paper scissors by generating a random number. Used for computer's RPS "play"
 function getComputerChoice() {
     let randomValue = Math.random();
@@ -14,6 +18,7 @@ function getComputerChoice() {
 }
 // console.log(getComputerChoice());
 
+
 // Gets choice of rock, paper, scissors by prompting user and returning string value. Used for player's RPS "play"
 function getHumanChoice() {
     let inputText = prompt("What play would you like to make?");
@@ -21,30 +26,32 @@ function getHumanChoice() {
 }
 // console.log(getHumanChoice());
 
+
 // This function will determine a victor by assessing the inputs from player and computer and increment score accordingly. 
 function playRound(humanChoice, computerChoice) {
 // Objective is to write an if statement for three situations: ones where player wins, ones where player ties, ones where player loses
     if (
-        humanChoice === "SCISSORS", computerChoice === "PAPER" ||
-        humanChoice === "PAPER", computerChoice === "ROCK" ||
-        humanChoice === "ROCK", computerChoice === "SCISSORS"
+        humanChoice === "SCISSORS" && computerChoice === "PAPER" ||
+        humanChoice === "PAPER" && computerChoice === "ROCK" ||
+        humanChoice === "ROCK" && computerChoice === "SCISSORS"
         ) {
-            ++humanScore;
+            console.log (`SCORE: Computer ${computerScore}. Human ${++humanScore}`)
             return `You win this round! ${humanChoice} beats ${computerChoice}`;
 
     } else if (
-        humanChoice === "SCISSORS", computerChoice === "SCISSORS" ||
-        humanChoice === "PAPER", computerChoice === "PAPER" ||
-        humanChoice === "ROCK", computerChoice === "ROCK"
+        humanChoice === "SCISSORS" && computerChoice === "SCISSORS" ||
+        humanChoice === "PAPER" && computerChoice === "PAPER" ||
+        humanChoice === "ROCK" && computerChoice === "ROCK"
         ) {
+            console.log (`SCORE: Computer ${computerScore}. Human ${humanScore}`)
             return `It's a tie! Nobody wins!`;
 
     } else if (
-        humanChoice === "SCISSORS", computerChoice === "ROCK" || 
-        humanChoice === "PAPER", computerChoice === "SCISSORS" ||
-        humanChoice === "ROCK", computerChoice === "PAPER"
+        humanChoice === "SCISSORS" && computerChoice === "ROCK" || 
+        humanChoice === "PAPER" && computerChoice === "SCISSORS" ||
+        humanChoice === "ROCK" && computerChoice === "PAPER"
         ) {
-            ++computerScore;
+            console.log (`SCORE: Computer ${++computerScore}. Human ${humanScore}`)
             return `You lose this round! ${computerChoice} beats ${humanChoice}`;
 
     } else {
@@ -52,9 +59,9 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-const humanChoice = getHumanChoice();
-const computerChoice = getComputerChoice();
 
-playRound(humanChoice, computerChoice);
+function playGame() {
+
+}
 // This function will call a play round function 5 times, evaluating incremented score upon conclusion and declaring a winner.
 
