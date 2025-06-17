@@ -60,8 +60,15 @@ function playRound(humanChoice, computerChoice) {
 }
 
 
-function playGame() {
-
-}
 // This function will call a play round function 5 times, evaluating incremented score upon conclusion and declaring a winner.
+function playGame() {
+    for (let i = 0; i <5; i++) {
+        playRound();
+    }
+    if (playerScore > computerScore) {
+        return `You've beat the computer! The final score was ${playerScore}-${computerScore}`
+    } else {
+        return `You've been defeated by the computer! The final score was ${computerScore}-${playerScore}`
+    }
+}
 
