@@ -8,17 +8,55 @@ function getComputerChoice() {
         return "SCISSORS";
     } else if (randomValue > 0.33 && randomValue <= 0.67) {
         return "PAPER";
-    } else (randomValue > 0.67); {
+    } else {
         return "ROCK";
     }
 }
-console.log(getComputerChoice());
+// console.log(getComputerChoice());
 
 // Gets choice of rock, paper, scissors by prompting user and returning string value. Used for player's RPS "play"
 function getHumanChoice() {
     let inputText = prompt("What play would you like to make?");
-    let playerChoice = inputText.toUpperCase();
-    return playerChoice;
+    return inputText = inputText.toUpperCase();
 }
-console.log(getHumanChoice());
+// console.log(getHumanChoice());
+
+// This function will determine a victor by assessing the inputs from player and computer and increment score accordingly. 
+function playRound(humanChoice, computerChoice) {
+
+}
+
+const humanChoice = getHumanChoice();
+const computerChoice = getComputerChoice();
+
+playRound(humanChoice, computerChoice);
+// Objective is to write an if statement for three situations: ones where player wins, ones where player ties, ones where player loses
+    if (
+        humanChoice === "SCISSORS", computerChoice === "PAPER" ||
+        humanChoice === "PAPER", computerChoice === "ROCK" ||
+        humanChoice === "ROCK", computerChoice === "SCISSORS"
+        ) {
+            ++humanScore;
+            return `You win this round! ${humanChoice} beats ${computerChoice}`;
+
+    } else if (
+        humanChoice === "SCISSORS", computerChoice === "SCISSORS" ||
+        humanChoice === "PAPER", computerChoice === "PAPER" ||
+        humanChoice === "ROCK", computerChoice === "ROCK"
+        ) {
+            return `It's a tie! Nobody wins!`;
+
+    } else if (
+        humanChoice === "SCISSORS", computerChoice === "ROCK" || 
+        humanChoice === "PAPER", computerChoice === "SCISSORS" ||
+        humanChoice === "ROCK", computerChoice === "PAPER"
+        ) {
+            ++computerScore;
+            return `You lose this round! ${computerChoice} beats ${humanChoice}`;
+            
+    } else {
+            return `Try typing the right string next time. You broke it.`
+    }
+
+// This function will call a play round function 5 times, evaluating incremented score upon conclusion and declaring a winner.
 
