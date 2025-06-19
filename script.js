@@ -1,10 +1,6 @@
 let humanScore = 0;
 let computerScore = 0;
 
-const humanChoice = getHumanChoice();
-const computerChoice = getComputerChoice();
-
-
 // Gets choice of rock, paper scissors by generating a random number. Used for computer's RPS "play"
 function getComputerChoice() {
     let randomValue = Math.random();
@@ -28,7 +24,9 @@ function getHumanChoice() {
 
 
 // This function will determine a victor by assessing the inputs from player and computer and increment score accordingly. 
-function playRound(humanChoice, computerChoice) {
+function playRound() {
+    let humanChoice = getHumanChoice();
+    let computerChoice = getComputerChoice();
 // Objective is to write an if statement for three situations: ones where player wins, ones where player ties, ones where player loses
     if (
         humanChoice === "SCISSORS" && computerChoice === "PAPER" ||
@@ -63,7 +61,7 @@ function playRound(humanChoice, computerChoice) {
 // This function will call a play round function 5 times, evaluating incremented score upon conclusion and declaring a winner.
 function playGame() {
     for (let i = 0; i <5; i++) {
-        playRound(humanChoice, computerChoice);
+        playRound();
     }
     if (humanScore > computerScore) {
         return console.log(`You've beat the computer! The final score was ${humanScore}-${computerScore}`);
