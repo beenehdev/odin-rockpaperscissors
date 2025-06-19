@@ -41,7 +41,6 @@ function playRound() {
         humanChoice === "PAPER" && computerChoice === "PAPER" ||
         humanChoice === "ROCK" && computerChoice === "ROCK"
         ) {
-            console.log(`SCORE: Computer ${computerScore}. Human ${humanScore}`);
             return console.log(`It's a tie! Nobody wins!`);
 
     } else if (
