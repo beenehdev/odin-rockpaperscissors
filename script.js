@@ -35,24 +35,24 @@ function playRound(humanChoice, computerChoice) {
         humanChoice === "PAPER" && computerChoice === "ROCK" ||
         humanChoice === "ROCK" && computerChoice === "SCISSORS"
         ) {
-            console.log (`SCORE: Computer ${computerScore}. Human ${++humanScore}`)
-            return `You win this round! ${humanChoice} beats ${computerChoice}`;
+            console.log(`SCORE: Computer ${computerScore}. Human ${++humanScore}`);
+            return console.log(`You win this round! ${humanChoice} beats ${computerChoice}`);
 
     } else if (
         humanChoice === "SCISSORS" && computerChoice === "SCISSORS" ||
         humanChoice === "PAPER" && computerChoice === "PAPER" ||
         humanChoice === "ROCK" && computerChoice === "ROCK"
         ) {
-            console.log (`SCORE: Computer ${computerScore}. Human ${humanScore}`)
-            return `It's a tie! Nobody wins!`;
+            console.log(`SCORE: Computer ${computerScore}. Human ${humanScore}`);
+            return console.log(`It's a tie! Nobody wins!`);
 
     } else if (
         humanChoice === "SCISSORS" && computerChoice === "ROCK" || 
         humanChoice === "PAPER" && computerChoice === "SCISSORS" ||
         humanChoice === "ROCK" && computerChoice === "PAPER"
         ) {
-            console.log (`SCORE: Computer ${++computerScore}. Human ${humanScore}`)
-            return `You lose this round! ${computerChoice} beats ${humanChoice}`;
+            console.log(`SCORE: Computer ${++computerScore}. Human ${humanScore}`);
+            return console.log(`You lose this round! ${computerChoice} beats ${humanChoice}`);
 
     } else {
             return `Try typing the right string next time. You broke it.`;
@@ -63,12 +63,15 @@ function playRound(humanChoice, computerChoice) {
 // This function will call a play round function 5 times, evaluating incremented score upon conclusion and declaring a winner.
 function playGame() {
     for (let i = 0; i <5; i++) {
-        playRound();
+        playRound(humanChoice, computerChoice);
     }
-    if (playerScore > computerScore) {
-        return `You've beat the computer! The final score was ${playerScore}-${computerScore}`
+    if (humanScore > computerScore) {
+        return console.log(`You've beat the computer! The final score was ${humanScore}-${computerScore}`);
+    } else if (humanScore < computerScore) {
+        return console.log(`You've been defeated by the computer! The final score was ${computerScore}-${humanScore}`);
     } else {
-        return `You've been defeated by the computer! The final score was ${computerScore}-${playerScore}`
+        console.log("You're both losers! Wow!");
     }
 }
 
+playGame();
