@@ -36,11 +36,7 @@ function playRound() {
             console.log(`SCORE: Computer ${computerScore}. Human ${++humanScore}`);
             return console.log(`You win this round! ${humanChoice} beats ${computerChoice}`);
 
-    } else if (
-        humanChoice === "SCISSORS" && computerChoice === "SCISSORS" ||
-        humanChoice === "PAPER" && computerChoice === "PAPER" ||
-        humanChoice === "ROCK" && computerChoice === "ROCK"
-        ) {
+    } else if (humanChoice == computerChoice) {
             return console.log(`It's a tie! Nobody wins!`);
 
     } else if (
