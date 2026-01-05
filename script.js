@@ -31,7 +31,7 @@ moveButtons.forEach((button => {
 // Gets choice of rock, paper, scissors by prompting user and returning string value. Used for player's RPS "play"
 // function getHumanChoice() {
 //     let inputText = prompt("What play would you like to make?");
-//     return inputText = inputText.toUpperCase();
+//      inputText = inputText.toUpperCase();
 // }
 
 
@@ -41,6 +41,7 @@ function playRound() {
     const div = document.createElement("div");
     buttonContainer.appendChild(div);
     let computerChoice = getComputerChoice();
+    
 // Objective is to write an if statement for three situations: ones where player wins, ones where player ties, ones where player loses
     if (
         humanChoice === "SCISSORS" && computerChoice === "PAPER" ||
@@ -48,24 +49,36 @@ function playRound() {
         humanChoice === "ROCK" && computerChoice === "SCISSORS"
         ) {
             // console.log(`SCORE: Computer ${computerScore}. Human ${++humanScore}`);
-            // return console.log(`You win this round! ${humanChoice} beats ${computerChoice}`);
+            //  console.log(`You win this round! ${humanChoice} beats ${computerChoice}`);
             div.textContent = `You win this round! ${humanChoice} beats ${computerChoice}`;
-            return;
+            ++humanScore;
 
     } else if (humanChoice == computerChoice) {
             div.textContent = `It's a tie! Nobody wins!`;
-            return;
 
     } else {
             // console.log(`SCORE: Computer ${++computerScore}. Human ${humanScore}`);
             div.textContent = `You lose this round! ${computerChoice} beats ${humanChoice}`;
-            return;
+            ++computerScore;
 
     // } else {
     //         div.textContent = `Try typing the right string next time. You broke it.`;
-    //         return;
+    //         ;
     }
-}
+    if ( computerScore === 5 || humanScore === 5 ) {
+        if (humanScore > computerScore) {
+            console.log(`You've beat the computer! The final score was ${humanScore}-${computerScore}`);
+            humanScore = computerScore = 0;
+            return;
+        } else {
+            console.log(`You've been defeated by the computer! The final score was ${computerScore}-${humanScore}`);
+            humanScore = computerScore = 0;
+        }
+    } else { 
+        return; 
+}};
+
+
 
 
 // This function will call a play round function 5 times, evaluating incremented score upon conclusion and declaring a winner.
@@ -75,9 +88,9 @@ function playRound() {
 //     }
 
 //     if (humanScore > computerScore) {
-//         return console.log(`You've beat the computer! The final score was ${humanScore}-${computerScore}`);
+//          console.log(`You've beat the computer! The final score was ${humanScore}-${computerScore}`);
 //     } else if (humanScore < computerScore) {
-//         return console.log(`You've been defeated by the computer! The final score was ${computerScore}-${humanScore}`);
+//          console.log(`You've been defeated by the computer! The final score was ${computerScore}-${humanScore}`);
 //     } else {
 //         console.log("You're both losers! Wow!");
 //     }
