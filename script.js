@@ -3,7 +3,6 @@ let humanScore = 0;
 let computerScore = 0;
 let humanChoice;
 let computerChoice;
-const buttonContainer = document.querySelector("div");
 
 function getComputerChoice() {
     let randomValue = Math.random();
@@ -25,9 +24,12 @@ moveButtons.forEach((button => {
 }));
 
 function playRound() {
+    const buttonContainer = document.querySelector("div");
     const div = document.createElement("div");
     const results = document.createElement("div");
+
     buttonContainer.appendChild(div);
+    
     let computerChoice = getComputerChoice();
     if (
         humanChoice === "SCISSORS" && computerChoice === "PAPER" ||
@@ -36,13 +38,13 @@ function playRound() {
         ) {
             div.textContent = `You win this round! ${humanChoice} beats ${computerChoice}`;
             ++humanScore;
-    } else if (humanChoice == computerChoice) {
+    } else if (humanChoice === computerChoice) {
             div.textContent = `It's a tie! Nobody wins!`;
     } else {
-
             div.textContent = `You lose this round! ${computerChoice} beats ${humanChoice}`;
             ++computerScore;
     }
+
     if ( computerScore === 5 || humanScore === 5 ) {
         if (humanScore > computerScore) {
             results.textContent = `You've beat the computer! The final score was ${humanScore}-${computerScore}`;
@@ -57,4 +59,5 @@ function playRound() {
         }
     } else { 
         return; 
-}};
+    } 
+};
