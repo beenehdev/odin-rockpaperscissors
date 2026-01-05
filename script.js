@@ -26,6 +26,7 @@ moveButtons.forEach((button => {
 
 function playRound() {
     const div = document.createElement("div");
+    const results = document.createElement("div");
     buttonContainer.appendChild(div);
     let computerChoice = getComputerChoice();
     if (
@@ -44,12 +45,15 @@ function playRound() {
     }
     if ( computerScore === 5 || humanScore === 5 ) {
         if (humanScore > computerScore) {
-            console.log(`You've beat the computer! The final score was ${humanScore}-${computerScore}`);
+            results.textContent = `You've beat the computer! The final score was ${humanScore}-${computerScore}`;
+            buttonContainer.appendChild(results);
             humanScore = computerScore = 0;
             return;
         } else {
-            console.log(`You've been defeated by the computer! The final score was ${computerScore}-${humanScore}`);
+            results.textContent = `You've been defeated by the computer! The final score was ${computerScore}-${humanScore}`;
+            buttonContainer.appendChild(results);
             humanScore = computerScore = 0;
+            return;
         }
     } else { 
         return; 
